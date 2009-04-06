@@ -1,0 +1,7 @@
+= deprecate
+
+Description goes here.
+
+== Copyright
+
+Copyright (c) 2009 Jeremy McAnally. See LICENSE for details.
