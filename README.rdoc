@@ -1,6 +1,34 @@
 = deprecate
 
-Description goes here.
+Deprecate (primarily) test code after a certain date, version, or other arbitrary condition.
+
+== Examples
+
+    # Deprecate after a certain date
+    deprecate "this feature", :after => "June 19, 2009" do
+      assert "awesome"
+    end
+
+    # Deprecate if a proc's result is true
+    deprecate "this other feature", :when => lambda { this_conditional == true } do
+      assert "failure!"
+    end
+
+    # Deprecate at a certain version
+    # Version is drawn from a VERSION constant in the current class, its parent class, or Kernel
+    # You can set it in test_helper/spec_helper like: VERSION = YourLib::VERSION
+    deprecate "that feature dude", :version => "1.0" do
+      assert "this be deprecated"
+    end
+
+    # Deprecate if the version is greater than a number
+    deprecate "this thing", :version => greater_than("2.0") do
+      assert "wat"
+    end
+
+== Props
+
+Spawned from a conversation with people on Twitter, finally finished and polished after @trevorturk's blog entry: http://almosteffortless.com/2009/04/05/time-bomb-test/
 
 == Copyright
 
