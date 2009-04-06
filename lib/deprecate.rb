@@ -58,7 +58,7 @@ module Deprecate
     @extra = ""
     
     if deprecated
-      raise DeprecatedError, (qualifier[:message] || "#{what} is now deprecated#{@extra}.")
+      raise DeprecatedError, (qualifier[:message] || "`#{what}` is now deprecated#{@extra}.")
     else
       self.instance_eval(&block)
     end    

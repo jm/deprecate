@@ -4,6 +4,10 @@ Deprecate (primarily) test code after a certain date, version, or other arbitrar
 
 == Examples
 
+To use +deprecate+, simply require the code and put <tt>include Deprecate</tt> in whatever class
+you want to include it into (usually <tt>Test::Unit::TestCase</tt>).  Then, in your tests (or whatever 
+you include the module into) do something like:
+
     # Deprecate after a certain date
     deprecate "this feature", :after => "June 19, 2009" do
       assert "awesome"
@@ -25,6 +29,11 @@ Deprecate (primarily) test code after a certain date, version, or other arbitrar
     deprecate "this thing", :version => greater_than("2.0") do
       assert "wat"
     end
+    
+If a deprecation check fails it will produce an error like:
+
+    DeprecationError: `Doing stuff` is deprecated after 04/06/09 01:50:31.
+    DeprecationError: `Whatever` is deprecated after version 1.0.
 
 == Props
 
